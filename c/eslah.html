@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>عيد ميلاد صلوحة 🎈</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&family=Pacifico&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --pink:#ff2d78;--hot:#ff0a54;--rose:#ff6b9d;
+  --magenta:#c9184a;--gold:#ffd700;--dark:#0d0619;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Tajawal',sans-serif;
+  background:radial-gradient(ellipse at 25% 40%,#3d0f5e 0%,#1a0a2e 45%,#0d0619 100%);
+  min-height:100vh;overflow-x:hidden;color:#fff;
+}
+
+/* STARS */
+.stars{position:fixed;inset:0;z-index:0;pointer-events:none;}
+.star{position:absolute;background:#fff;border-radius:50%;animation:twinkle ease-in-out infinite alternate;}
+@keyframes twinkle{from{opacity:.1;transform:scale(1);}to{opacity:1;transform:scale(1.5);}}
+
+/* BG BALLOONS */
+.balbg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.bal{position:absolute;bottom:-160px;animation:riseUp linear infinite;}
+.bal svg{animation:sway ease-in-out infinite alternate;}
+@keyframes riseUp{0%{transform:translateY(0);opacity:0;}5%{opacity:.85;}95%{opacity:.6;}100%{transform:translateY(-110vh);opacity:0;}}
+@keyframes sway{from{transform:rotate(-14deg);}to{transform:rotate(14deg);}}
+
+/* CONFETTI */
+.cp{position:fixed;top:-20px;animation:cfall linear infinite;pointer-events:none;z-index:0;}
+@keyframes cfall{0%{transform:translateY(0) rotateZ(0);opacity:1;}100%{transform:translateY(110vh) rotateZ(720deg);opacity:0;}}
+
+/* CONTAINER */
+.wrap{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:50px 20px 80px;display:flex;flex-direction:column;align-items:center;gap:42px;}
+
+/* TITLE */
+.title-block{text-align:center;animation:dropIn .9s cubic-bezier(.34,1.56,.64,1) both;}
+@keyframes dropIn{from{transform:translateY(-70px) scale(.7);opacity:0;}to{transform:translateY(0) scale(1);opacity:1;}}
+.crown{font-size:3rem;display:block;animation:wobble 2s ease-in-out infinite;}
+@keyframes wobble{0%,100%{transform:rotate(-9deg) scale(1);}50%{transform:rotate(9deg) scale(1.15);}}
+h1{
+  font-family:'Pacifico',cursive;
+  font-size:clamp(1.9rem,7vw,3.2rem);
+  background:linear-gradient(90deg,#ff2d78,#ffd700,#ff85b3,#ff2d78);
+  background-size:300%;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:shimmer 3s linear infinite;line-height:1.3;
+}
+@keyframes shimmer{to{background-position:300%;}}
+.sub{font-size:1.15rem;color:#ffb3cc;margin-top:8px;letter-spacing:2px;animation:dropIn .9s .25s both;}
+
+/* ══ BALLOON PHOTO ══ */
+.balloon-wrap{
+  position:relative;width:260px;height:420px;
+  animation:floatBalloon 4s ease-in-out infinite;
+  cursor:pointer;
+}
+@keyframes floatBalloon{0%,100%{transform:translateY(0) rotate(-2deg);}50%{transform:translateY(-24px) rotate(2deg);}}
+
+.big-bal{
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:240px;height:285px;z-index:0;
+  filter:drop-shadow(0 0 35px rgba(255,45,120,.8));
+}
+
+.str{
+  position:absolute;top:276px;left:50%;transform:translateX(-50%);
+  width:3px;height:100px;
+  background:linear-gradient(to bottom,rgba(255,107,157,.9),transparent);
+  border-radius:2px;z-index:0;
+  animation:strSway 4s ease-in-out infinite;transform-origin:top center;
+}
+@keyframes strSway{0%,100%{transform:translateX(-50%) rotate(-4deg);}50%{transform:translateX(-50%) rotate(4deg);}}
+
+.photo-ring{
+  position:absolute;top:18px;left:50%;transform:translateX(-50%);
+  width:240px;height:240px;border-radius:50%;z-index:3;
+  background:conic-gradient(#ff2d78,#ffd700,#ff6b9d,#c9184a,#ffd700,#ff2d78);
+  padding:5px;
+  box-shadow:0 0 50px rgba(255,45,120,.9),0 0 100px rgba(255,45,120,.4);
+}
+.photo-inner{
+  width:100%;height:100%;border-radius:50%;overflow:hidden;
+  border:4px solid #1a0a2e;
+}
+.photo-inner img{width:100%;height:100%;object-fit:cover;object-position:top center;}
+
+.bal-name{
+  position:absolute;top:240px;left:50%;transform:translateX(-50%);
+  font-family:'Pacifico',cursive;font-size:1.45rem;
+  color:var(--gold);white-space:nowrap;z-index:4;
+  text-shadow:0 0 14px rgba(255,215,0,.9);
+  animation:namePulse 2s ease-in-out infinite;
+}
+@keyframes namePulse{0%,100%{text-shadow:0 0 14px rgba(255,215,0,.8);}50%{text-shadow:0 0 30px rgba(255,215,0,1),0 0 60px rgba(255,45,120,.7);}}
+
+/* CLICK HINT */
+.click-hint{
+  position:absolute;bottom:10px;left:50%;transform:translateX(-50%);
+  font-size:.8rem;color:rgba(255,179,204,.6);white-space:nowrap;
+  animation:blink 2s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:.4;}50%{opacity:1;}}
+
+/* WISH CARD */
+.wish-card{
+  background:linear-gradient(135deg,rgba(255,45,120,.18),rgba(80,0,60,.3),rgba(255,45,120,.12));
+  backdrop-filter:blur(22px);
+  border:1px solid rgba(255,107,157,.45);
+  border-radius:28px;padding:38px;width:100%;
+  box-shadow:0 0 50px rgba(255,45,120,.25),inset 0 1px 0 rgba(255,255,255,.08);
+  animation:fadeUp 1s .7s both;text-align:center;
+}
+@keyframes fadeUp{from{transform:translateY(40px);opacity:0;}to{transform:translateY(0);opacity:1;}}
+.wish-title{font-size:1.45rem;font-weight:900;color:var(--rose);margin-bottom:18px;display:block;}
+.wish-card p{font-size:1.13rem;line-height:2.15;color:#ffd1e8;}
+.gold-line{color:var(--gold);font-weight:900;font-size:1.22rem;}
+
+/* BADGES */
+.badges{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;animation:fadeUp 1s 1s both;}
+.badge{
+  background:linear-gradient(135deg,#a50035,#ff2d78);
+  border-radius:50px;padding:10px 22px;font-size:.98rem;font-weight:700;
+  box-shadow:0 4px 22px rgba(255,45,120,.55);border:1px solid rgba(255,255,255,.15);
+  animation:badgePop .6s cubic-bezier(.34,1.56,.64,1) both;
+}
+.badge:nth-child(1){animation-delay:1s}.badge:nth-child(2){animation-delay:1.15s}
+.badge:nth-child(3){animation-delay:1.3s}.badge:nth-child(4){animation-delay:1.45s}
+@keyframes badgePop{from{transform:scale(0);opacity:0;}to{transform:scale(1);opacity:1;}}
+
+/* FOOTER */
+.footer{font-size:1.05rem;color:#ff6b9d;font-weight:700;text-align:center;animation:fadeUp 1s 1.5s both;letter-spacing:1px;}
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+<div class="balbg" id="balbg"></div>
+
+<div class="wrap">
+
+  <div class="title-block">
+    <span class="crown">👑</span>
+    <h1>The most beautiful 20th birthday</h1>
+    <h1>15/5</h1>
+    <div class="sub">✨ Happy Birthday Saloha ✨</div>
+  </div>
+
+  <div class="balloon-wrap" id="mainBal">
+    <!-- Big balloon SVG -->
+    <svg class="big-bal" viewBox="0 0 240 285" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="balG" cx="35%" cy="28%">
+          <stop offset="0%" stop-color="#ff85b3"/>
+          <stop offset="45%" stop-color="#ff2d78"/>
+          <stop offset="100%" stop-color="#7a0030"/>
+        </radialGradient>
+        <radialGradient id="shineG" cx="30%" cy="25%">
+          <stop offset="0%" stop-color="rgba(255,255,255,.5)"/>
+          <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+        </radialGradient>
+        <filter id="glow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <ellipse cx="120" cy="132" rx="110" ry="126" fill="url(#balG)" filter="url(#glow)"/>
+      <ellipse cx="78" cy="76"  rx="44"  ry="54"  fill="url(#shineG)"/>
+      <path d="M108 256 Q120 272 132 256 Q126 264 120 268 Q114 264 108 256Z" fill="#7a0030"/>
+    </svg>
+
+    <div class="str"></div>
+
+    <!-- Spinning ring + photo -->
+    <div class="photo-ring">
+      <div class="photo-inner">
+        <img src="./1000337164-1.jpg.jpeg" alt="إصلاح"/>
+      </div>
+    </div>
+
+    <div class="bal-name">🌸 صلوحة 🌸</div>
+    <div class="click-hint"></div>
+  </div>
+
+  <div class="wish-card">
+    <span class="wish-title">💌 من القلب لأحلى صلوحة💌</span>
+    <p>
+      <span class="gold-line">🌹 كل سنة وأنتِ بألف خير يا إصلاح 🌹</span><br/>
+      يا أغلى أخت وأجمل صاحبة في الدنيا 💕<br/><br/>
+      كل عام وانتي الي الله اقرب 🌙<br/>
+      ويرزقك بكل اللي بتتمنيه وأكتر<br/>
+      ويكرمك في كل خطوة بتخطيها ✨<br/><br/>
+      <span class="gold-line">💛 السنة الجاية تلاقي كل أحلامك حقيقة 💛</span><br/><br/>
+      وديما منكدة عليا <br/>
+      وديما سوا 🎀<br/><br/>
+      <span class="gold-line">🎂 🎂</span>
+    </p>
+  </div>
+
+  <div class="badges">
+    <div class="badge">🎈 كل عام ونتي بالف خير </div>
+    <div class="badge">💖 اجمل من يتم ال 20</div>
+    <div class="badge">✨</div>
+    <div class="badge">🌹 </div>
+  </div>
+
+  <div class="footer"></div>
+</div>
+
+<script>
+// Stars
+const sc=document.getElementById('stars');
+for(let i=0;i<130;i++){
+  const s=document.createElement('div');s.className='star';
+  const z=Math.random()*3+1;
+  Object.assign(s.style,{
+    width:z+'px',height:z+'px',
+    top:Math.random()*100+'%',left:Math.random()*100+'%',
+    animationDuration:(1.5+Math.random()*3)+'s',
+    animationDelay:(Math.random()*4)+'s'
+  });
+  sc.appendChild(s);
+}
+
+// Background balloons
+const bc=document.getElementById('balbg');
+const bcols=['#ff2d78','#c9184a','#ff6b9d','#ff0a54','#a50035','#ff85b3','#d4006a'];
+for(let i=0;i<16;i++){
+  const b=document.createElement('div');b.className='bal';
+  const col=bcols[i%bcols.length],sz=45+Math.random()*55;
+  Object.assign(b.style,{
+    left:Math.random()*100+'%',
+    animationDuration:(9+Math.random()*13)+'s',
+    animationDelay:(Math.random()*12)+'s'
+  });
+  b.innerHTML=<svg width="${sz}" height="${sz*1.2}" viewBox="0 0 60 72">
+    <defs><radialGradient id="g${i}" cx="35%" cy="30%">
+      <stop offset="0%" stop-color="${col}" stop-opacity=".95"/>
+      <stop offset="100%" stop-color="${col}" stop-opacity=".35"/>
+    </radialGradient></defs>
+    <ellipse cx="30" cy="32" rx="28" ry="30" fill="url(#g${i})"/>
+    <ellipse cx="20" cy="20" rx="10" ry="13" fill="rgba(255,255,255,.22)"/>
+    <path d="M24 62 Q30 70 36 62 Q33 66 30 68 Q27 66 24 62Z" fill="${col}" opacity=".55"/>
+    <line x1="30" y1="62" x2="30" y2="72" stroke="${col}" stroke-width="1.5" opacity=".45"/>
+  </svg>;
+  bc.appendChild(b);
+}
+
+// Confetti
+const cols=['#ff2d78','#ffd700','#ff6b9d','#ffffff','#c9184a','#ffb3cc','#ff85b3','#a50035'];
+for(let i=0;i<65;i++){
+  const c=document.createElement('div');c.className='cp';
+  const w=5+Math.random()*9,h=5+Math.random()*9;
+  Object.assign(c.style,{
+    left:Math.random()*100+'vw',width:w+'px',height:h+'px',
+    background:cols[Math.floor(Math.random()*cols.length)],
+    borderRadius:Math.random()>.5?'50%':'2px',
+    animationDuration:(5+Math.random()*7)+'s',
+    animationDelay:(Math.random()*7)+'s'
+  });
+  document.body.appendChild(c);
+}
+
+// Burst on click
+const burstKf=document.createElement('style');
+burstKf.textContent=@keyframes burst{0%{transform:translate(0,0) scale(1.2);opacity:1;}100%{transform:translate(var(--tx),var(--ty)) scale(0);opacity:0;}};
+document.head.appendChild(burstKf);
+
+document.getElementById('mainBal').addEventListener('click',function(e){
+  const rect=this.getBoundingClientRect();
+  const cx=rect.left+rect.width/2, cy=rect.top+rect.height/3;
+  const emojis=['💖','🌸','✨','🎀','💕','🌟','🎊','💗'];
+  for(let i=0;i<20;i++){
+    const h=document.createElement('div');
+    h.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+    Object.assign(h.style,{
+      position:'fixed',
+      top:cy+'px',left:cx+'px',
+      fontSize:(1.2+Math.random()*1.6)+'rem',
+      pointerEvents:'none',zIndex:999,
+      '--tx':((Math.random()-.5)*320)+'px',
+      '--ty':((Math.random()-1.1)*280)+'px',
+      animation:'burst 1s ease-out forwards'
+    });
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),1100);
+  }
+});
+</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>عيد ميلاد إصلاح 🎂</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700;900&family=Pacifico&display=swap" rel="stylesheet"/>
+
+<style>
+
+:root{
+--pink:#ff2d78;
+--rose:#ff7eb3;
+--gold:#ffd166;
+--dark:#0e071c;
+--glass:rgba(255,255,255,.08);
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Tajawal',sans-serif;
+background:
+radial-gradient(circle at top,#43205e 0%,#1a0d2d 45%,#0e071c 100%);
+min-height:100vh;
+overflow-x:hidden;
+color:white;
+position:relative;
+}
+
+/* ===== STARS ===== */
+
+.stars{
+position:fixed;
+inset:0;
+pointer-events:none;
+z-index:0;
+}
+
+.star{
+position:absolute;
+background:white;
+border-radius:50%;
+animation:twinkle infinite alternate;
+}
+
+@keyframes twinkle{
+from{
+opacity:.2;
+transform:scale(1);
+}
+to{
+opacity:1;
+transform:scale(1.8);
+}
+}
+
+/* ===== FLOATING HEARTS ===== */
+
+.float-heart{
+position:fixed;
+bottom:-50px;
+font-size:24px;
+opacity:.7;
+animation:floatUp linear infinite;
+pointer-events:none;
+z-index:0;
+}
+
+@keyframes floatUp{
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:0;
+}
+10%{
+opacity:.8;
+}
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+}
+
+/* ===== MAIN ===== */
+
+.container{
+position:relative;
+z-index:2;
+max-width:1100px;
+margin:auto;
+padding:40px 20px 100px;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+text-align:center;
+margin-bottom:50px;
+animation:fadeDown 1s ease;
+}
+
+@keyframes fadeDown{
+from{
+transform:translateY(-50px);
+opacity:0;
+}
+to{
+transform:translateY(0);
+opacity:1;
+}
+}
+
+.hero h1{
+font-size:clamp(2rem,6vw,4rem);
+font-family:'Pacifico',cursive;
+background:linear-gradient(90deg,#ff4d94,#ffd166,#ffffff,#ff4d94);
+background-size:300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:shine 5s linear infinite;
+line-height:1.4;
+}
+
+@keyframes shine{
+to{
+background-position:300%;
+}
+}
+
+.hero p{
+margin-top:15px;
+font-size:1.2rem;
+color:#ffd6e7;
+}
+
+/* ===== PHOTO SECTION ===== */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+margin-top:50px;
+}
+
+.card{
+position:relative;
+height:450px;
+border-radius:28px;
+overflow:hidden;
+background:var(--glass);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.15);
+box-shadow:0 10px 40px rgba(0,0,0,.35);
+transition:.5s;
+cursor:pointer;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.03);
+/* background-position: center; */
+}
+
+.card img{
+width:100%;
+height:100%;
+object-fit:cover;
+object-position: center;
+/* background-position: center; */
+transition:1s;
+}
+
+.card:hover img{
+transform:scale(1.1);
+}
+
+.overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(0,0,0,.8),transparent);
+display:flex;
+align-items:flex-end;
+padding:20px;
+}
+
+.overlay h3{
+font-size:1.3rem;
+}
+
+/* ===== MESSAGE BUTTON ===== */
+
+.center{
+display:flex;
+justify-content:center;
+margin-top:55px;
+}
+
+.magic-btn{
+border:none;
+padding:18px 35px;
+border-radius:100px;
+font-size:1.1rem;
+font-weight:700;
+background:linear-gradient(135deg,#ff2d78,#ff8fab);
+color:white;
+cursor:pointer;
+transition:.4s;
+box-shadow:0 10px 30px rgba(255,45,120,.45);
+}
+
+.magic-btn:hover{
+transform:scale(1.07);
+}
+
+/* ===== SECRET MESSAGE ===== */
+
+.secret{
+margin-top:35px;
+background:rgba(255,255,255,.07);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.15);
+border-radius:30px;
+padding:35px;
+line-height:2.2;
+font-size:1.15rem;
+text-align:center;
+display:none;
+animation:showMsg .8s ease;
+}
+
+@keyframes showMsg{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.secret span{
+color:var(--gold);
+font-weight:900;
+font-size:1.3rem;
+}
+
+/* ===== TIMELINE ===== */
+
+.timeline{
+margin-top:70px;
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+justify-content:center;
+}
+
+.time-card{
+width:220px;
+padding:25px;
+border-radius:25px;
+background:rgba(255,255,255,.07);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,.15);
+text-align:center;
+transition:.4s;
+}
+
+.time-card:hover{
+transform:translateY(-8px);
+}
+
+.time-card h2{
+font-size:2rem;
+margin-bottom:10px;
+color:#ffd166;
+}
+
+/* ===== FOOTER ===== */
+
+.footer{
+margin-top:70px;
+text-align:center;
+font-size:1.1rem;
+color:#ffb3d1;
+}
+
+/* ===== MUSIC ===== */
+
+.music{
+position:fixed;
+top:20px;
+left:20px;
+z-index:100;
+}
+
+.music button{
+border:none;
+width:60px;
+height:60px;
+border-radius:50%;
+background:#ff2d78;
+color:white;
+font-size:24px;
+cursor:pointer;
+box-shadow:0 10px 25px rgba(255,45,120,.4);
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:600px){
+
+.secret{
+font-size:1rem;
+padding:25px;
+}
+
+.card{
+height:250px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<!-- MUSIC -->
+<div class="music">
+<button id="musicBtn">🎵</button>
+</div>
+
+<!-- AUDIO -->
+<audio id="song" loop>
+<source src="wNut8QshEx0.mp3" type="audio/mp3">
+</audio>
+
+<div class="container">
+
+<!-- HERO -->
+<div class="hero">
+<h1></h1>
+<p>✨ لأجمل بنت تمت الـ 20 ✨</p>
+</div>
+
+<!-- GALLERY -->
+<div class="gallery">
+
+<div class="card">
+<img src="./web_image_1.webp" alt="">
+<div class="overlay">
+<h3></h3>
+</div>
+</div>
+
+<div class="card">
+<img src="./web_image_2.webp" alt="">
+<div class="overlay">
+<h3></h3>
+</div>
+</div>
+
+<div class="card">
+<img src="./web_image_3.webp" alt="">
+<div class="overlay">
+<h3></h3>
+</div>
+</div>
+
+</div>
+
+<!-- BUTTON -->
+<div class="center">
+<button class="magic-btn" id="openBtn">
+💌 اضغطي هنا يا إصلاح
+</button>
+</div>
+
+<!-- SECRET MESSAGE -->
+<div class="secret" id="secretBox">
+
+<span>🌹 كل سنة وانتي طيبة يا إصلاح 🌹</span>
+<br><br>
+
+بجد مهما كتبت كلام مش هيكفي قد إيه انتي شخص جميل 💖  
+وجودك لوحده بيخلي أي مكان أحلى وأهدى ✨
+
+<br><br>
+
+يارب السنة الجديدة تكون مليانة فرح ونجاح وضحك  
+وتحققي فيها كل اللي نفسك فيه 🎀
+
+<br><br>
+
+وتفضلي دايمًا:
+<br>
+🌸 جميلة  
+<br>
+✨ مميزة  
+<br>
+💖 وقريبة من ربنا أكتر وأكتر  
+
+<br><br>
+
+<span>🎂 Happy 20 🎂</span>
+
+</div>
+
+<!-- TIMELINE -->
+<div class="timeline">
+
+<div class="time-card">
+<h2>20 🎈</h2>
+<p>احلي 20 سنه نكدية ف الدنيا</p>
+</div>
+
+<!-- <div class="time-card">
+<h2> </h2>
+<p></p>
+</div>
+
+<div class="time-card">
+<h2>15/5 ✨</h2>
+<p></p>
+</div> -->
+
+</div>
+
+<div class="footer">
+Made for Eslah 💕
+</div>
+
+</div>
+
+<script>
+
+/* ===== STARS ===== */
+
+const stars=document.getElementById("stars");
+
+for(let i=0;i<120;i++){
+
+const s=document.createElement("div");
+
+s.className="star";
+
+let size=Math.random()*3+1;
+
+Object.assign(s.style,{
+width:size+"px",
+height:size+"px",
+top:Math.random()*100+"%",
+left:Math.random()*100+"%",
+animationDuration:(1+Math.random()*3)+"s"
+});
+
+stars.appendChild(s);
+
+}
+
+/* ===== FLOAT HEARTS ===== */
+
+const hearts=["💖","✨","🎀","🌸","💕"];
+
+for(let i=0;i<25;i++){
+
+const h=document.createElement("div");
+
+h.className="float-heart";
+
+h.innerHTML=hearts[Math.floor(Math.random()*hearts.length)];
+
+Object.assign(h.style,{
+left:Math.random()*100+"vw",
+fontSize:(20+Math.random()*20)+"px",
+animationDuration:(8+Math.random()*10)+"s",
+animationDelay:(Math.random()*10)+"s"
+});
+
+document.body.appendChild(h);
+
+}
+
+/* ===== OPEN MESSAGE ===== */
+
+const btn=document.getElementById("openBtn");
+const box=document.getElementById("secretBox");
+
+btn.onclick=()=>{
+
+if(box.style.display==="block"){
+
+box.style.display="none";
+btn.innerHTML="💌 اضغطي هنا يا إصلاح";
+
+}else{
+
+box.style.display="block";
+btn.innerHTML="🎀 اقفلي الرسالة";
+
+createBurst();
+
+}
+
+}
+
+/* ===== BURST EFFECT ===== */
+
+function createBurst(){
+
+const emojis=["💖","✨","🌸","🎀","💕","🎉"];
+
+for(let i=0;i<35;i++){
+
+const e=document.createElement("div");
+
+e.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+
+Object.assign(e.style,{
+position:"fixed",
+left:"50%",
+top:"50%",
+fontSize:(20+Math.random()*20)+"px",
+pointerEvents:"none",
+zIndex:"9999",
+transition:"1s"
+});
+
+document.body.appendChild(e);
+
+setTimeout(()=>{
+
+e.style.transform=`translate(
+${(Math.random()-.5)*700}px,
+${(Math.random()-.5)*500}px
+) scale(0)`;
+
+e.style.opacity="0";
+
+},10);
+
+setTimeout(()=>e.remove(),1000);
+
+}
+
+}
+
+/* ===== MUSIC ===== */
+
+const song=document.getElementById("song");
+const musicBtn=document.getElementById("musicBtn");
+
+let playing=false;
+
+musicBtn.onclick=()=>{
+
+if(!playing){
+
+song.play();
+musicBtn.innerHTML="⏸";
+
+}else{
+
+song.pause();
+musicBtn.innerHTML="🎵";
+
+}
+
+playing=!playing;
+
+}
+
+</script>
+
+</body>
+</html>
+
+
